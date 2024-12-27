@@ -63,7 +63,7 @@ router.post(
 // @access  Public
 router.get('/courses', async (req, res) => {
   try {
-    const courses = await Course.find().populate('faculty', 'name email');
+    const courses = await Course.find().populate('faculty', 'name email'); //give faculty as nested name, email in place of faculty id
     res.json(courses);
   } catch (err) {
     console.error(err.message);
