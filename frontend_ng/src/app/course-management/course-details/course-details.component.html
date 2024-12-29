@@ -1,0 +1,9 @@
+<div class="course-details">
+    <h2>{{ course?.title }}</h2>
+    <p>{{ course?.description }}</p>
+    <p><strong>Faculty:</strong> {{ course?.faculty.name }}</p>
+    <p><strong>Registered Students:</strong> {{ course?.students.length }}</p>
+  
+    <button (click)="onRegister()">Register</button>
+  </div>
+  

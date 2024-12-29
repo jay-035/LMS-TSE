@@ -73,7 +73,7 @@ router.get('/courses', async (req, res) => {
 
 // @route   GET /api/courses/:id
 // @desc    Get course details
-// @access  Private
+// @access  Public
 router.get('/courses/:id', async (req, res) => {
   try {
     const course = await Course.findById(req.params.id).populate('faculty', 'name email');

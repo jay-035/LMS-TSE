@@ -1,0 +1,7 @@
+<h2>Courses</h2>
+<mat-nav-list>
+  <mat-list-item *ngFor="let course of courses" (click)="onCourseClick(course)">
+    <div mat-line>{{ course.title }}</div>
+    <div mat-line>{{ course.description }}</div>
+  </mat-list-item>
+</mat-nav-list>
