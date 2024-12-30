@@ -1,9 +1,17 @@
-<div class="course-details">
-    <h2>{{ course?.title }}</h2>
-    <p>{{ course?.description }}</p>
-    <p><strong>Faculty:</strong> {{ course?.faculty.name }}</p>
-    <p><strong>Registered Students:</strong> {{ course?.students.length }}</p>
-  
-    <button (click)="onRegister()">Register</button>
+<div class="course-details" *ngIf="course; else loading">
+  <h2>{{ course?.title }}</h2>
+  <p>{{ course?.description }}</p>
+  <p><strong>Faculty:</strong> {{ course?.faculty.name }}</p>
+  <p><strong>Registered Students:</strong> {{ course?.students.length }}</p>
+
+  <button (click)="onRegister()">Register</button>
+
+  <!-- Error message handling -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
   </div>
-  
+</div>
+
+<ng-template #loading>
+  <p>Loading course details...</p>
+</ng-template>

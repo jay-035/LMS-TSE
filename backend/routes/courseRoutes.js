@@ -63,18 +63,19 @@ router.post(
 // @access  Private
 router.post('/courses/:id/register', authMiddleware, /*verifyStudent,*/ async (req, res) => {
   try {
+    
     const course = await Course.findById(req.params.id);
     if (!course) {
       return res.status(404).json({ msg: 'Course not found' });
     }
 
     // Check if the student is already registered
-    if (course.students.includes(req.user.id)) {
+    if (course.students.includes(req.user._id)) {
       return res.status(400).json({ msg: 'Already registered for this course' });
     }
 
     // Add student to the course
-    course.students.push(req.user.id);
+    course.students.push(req.user._id);
     await course.save();
 
     res.json({ msg: 'Successfully registered for the course' });

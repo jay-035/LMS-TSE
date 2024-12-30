@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
@@ -33,7 +34,7 @@ export class SignupComponent {
     const { name, email, password, role } = this.signupForm.value;
 
     // Make HTTP request to register the user
-    this.http.post('http://localhost:5000/api/register', { name, email, password, role })
+    this.http.post('http://localhost:5000/api/signup', { name, email, password, role })
       .subscribe({
         next: (response: any) => {
           // Handle successful registration
