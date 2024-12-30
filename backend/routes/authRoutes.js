@@ -78,7 +78,7 @@ router.post('/login',
 
       // Generate a token
       const payload = { user: { id: user.id, role: user.role } };
-      const token = jwt.sign(payload, 'yourSecretKey', { expiresIn: '1h' });
+      const token = jwt.sign(payload, 'mySecretKey', { expiresIn: '1h' });
 
       res.json({ token });
     } catch (err) {
