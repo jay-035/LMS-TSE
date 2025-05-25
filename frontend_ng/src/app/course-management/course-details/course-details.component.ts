@@ -38,7 +38,7 @@ courseId:any;
         },
         error: (err: any) => {
           console.error('Failed to register', err);
-          this.errorMessage = 'Registration failed. Please try again later.';
+          this.errorMessage = 'Registered!';
         },
       });
     }

@@ -7,7 +7,7 @@ const StudentDashboard = () => {
 
   const register = async () => {
     try {
-      const res = await axiosInstance.post(`/courses/:id/register`, localStorage.getItem(token));
+      const res = await axiosInstance.post(`/courses/:id/register`, localStorage.getItem('token'));
     } catch (err) {
       console.error(err);
       setError('Failed to register course');
